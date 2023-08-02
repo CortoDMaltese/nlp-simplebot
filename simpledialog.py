@@ -6,16 +6,18 @@ from tkinter import *
 
 # Generating response
 def get_bot_response(user_input): 
-    prompt = f"Please provide a response to the following user input: '{user_input}'"
-    response = openai.Completion.create(
-            model="text-davinci- 002", 
-            prompt=prompt, 
-            max_tokens=150,
-            n=1,
-            stop=None,
-            temperature=0.5
-            ) 
-    bot_response = response.choices[0].text.strip() 
+    bot_response = "" 
+    if(user_input == "hello"): 
+        bot_response = "Hi!" 
+    elif(user_input == "hi" or user_input == "hii" or user_input == "hiiii"): 
+        bot_response = "Hello there! How are you?" 
+    elif(user_input == "how are you"): 
+        bot_response = "Oh, I'm great! How about you?" 
+    elif(user_input == "fine" or user_input == "i am good" or user_input == "i am doing good"): 
+        bot_response = "That's excellent! How can I help you today?" 
+    else: 
+        bot_response = "I'm sorry, I don't understand..."
+   
     return bot_response
 
 
